@@ -1,398 +1,170 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#070b18" />
-  <meta name="description" content="JuaStore Roblox Vilog - Top up Robux murah, cepat, aman, dan terpercaya." />
-  <title>JuaStore Roblox Vilog</title>
-  <style>
-    :root{
-      --bg:#070b18;
-      --panel:#0e1530;
-      --panel2:#121b3c;
-      --line:rgba(255,255,255,.10);
-      --text:#f7f9ff;
-      --muted:#aab3cd;
-      --blue:#4cc9ff;
-      --purple:#8b5cff;
-      --green:#2fe57c;
-      --yellow:#ffd166;
-      --danger:#ff6b81;
-      --shadow:0 22px 60px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--text);
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:
-        radial-gradient(circle at 10% 10%,rgba(76,201,255,.12),transparent 28%),
-        radial-gradient(circle at 90% 14%,rgba(139,92,255,.15),transparent 28%),
-        linear-gradient(180deg,#080d1e 0%,#050814 100%);
-      min-height:100vh;
-    }
-    body::before{
-      content:"";
-      position:fixed;inset:0;pointer-events:none;opacity:.14;
-      background-image:
-        linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
-      background-size:34px 34px;
-      mask-image:linear-gradient(to bottom,black,transparent 85%);
-    }
-    a{text-decoration:none;color:inherit}
-    button{font:inherit}
-    .wrap{width:min(1120px,calc(100% - 28px));margin:auto}
-    .nav{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(16px);
-      background:rgba(5,8,20,.72);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:46px;height:46px;border-radius:15px;display:grid;place-items:center;
-      font-weight:900;font-size:18px;color:#07101a;
-      background:linear-gradient(135deg,#fff,#a7dfff 55%,#8b5cff);
-      box-shadow:0 10px 30px rgba(76,201,255,.24);
-    }
-    .brand strong{display:block;font-size:18px}
-    .brand span{font-size:12px;color:var(--muted)}
-    .nav-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .nav-link{
-      padding:10px 14px;border:1px solid var(--line);border-radius:12px;color:var(--muted);
-      background:rgba(255,255,255,.025);
-    }
-    .nav-link:hover{color:#fff;border-color:rgba(76,201,255,.45)}
-    .hero{padding:70px 0 36px}
-    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
-    .eyebrow{
-      display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;
-      border:1px solid rgba(76,201,255,.35);color:#ccefff;background:rgba(76,201,255,.08);
-      font-size:13px;font-weight:700;
-    }
-    h1{font-size:clamp(42px,8vw,76px);line-height:.97;margin:18px 0 16px;letter-spacing:-.05em}
-    .gradient{
-      background:linear-gradient(90deg,#fff 5%,#7fdcff 48%,#a98cff);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-    }
-    .lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:650px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-    .btn{
-      border:none;border-radius:15px;padding:14px 18px;font-weight:800;cursor:pointer;
-      display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:.2s ease;
-    }
-    .btn:hover{transform:translateY(-2px)}
-    .btn-primary{background:linear-gradient(135deg,var(--blue),#3f7cff);color:#06111e;box-shadow:0 15px 35px rgba(76,201,255,.22)}
-    .btn-secondary{background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff}
-    .btn-pay{background:linear-gradient(135deg,var(--purple),#6139ff);color:#fff}
-    .hero-card{
-      position:relative;overflow:hidden;border:1px solid var(--line);border-radius:28px;padding:24px;
-      background:linear-gradient(145deg,rgba(18,27,60,.96),rgba(10,15,35,.95));box-shadow:var(--shadow)
-    }
-    .hero-card::before{
-      content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-80px;top:-80px;
-      background:radial-gradient(circle,rgba(76,201,255,.38),transparent 68%);
-    }
-    .game-screen{
-      min-height:320px;border-radius:22px;border:1px solid rgba(255,255,255,.10);padding:24px;
-      background:
-        linear-gradient(145deg,rgba(139,92,255,.22),rgba(76,201,255,.08)),
-        #0b1230;
-      position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
-    }
-    .game-screen::after{
-      content:"R$";position:absolute;right:22px;bottom:-20px;font-size:150px;font-weight:1000;
-      color:rgba(255,255,255,.055);transform:rotate(-8deg);
-    }
-    .status{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:2}
-    .online{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:#c9ffd9}
-    .dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green)}
-    .big-robux{position:relative;z-index:2}
-    .big-robux small{color:var(--muted);text-transform:uppercase;letter-spacing:.14em}
-    .big-robux strong{display:block;font-size:56px;margin-top:4px}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:2}
-    .badge{font-size:12px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid var(--line)}
-    section{padding:42px 0}
-    .section-head{text-align:center;margin-bottom:26px}
-    .section-head h2{font-size:clamp(30px,5vw,48px);margin:0 0 8px}
-    .section-head p{color:var(--muted);margin:0}
-    .tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:22px}
-    .tab{
-      border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);
-      border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:800;
-    }
-    .tab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:#06111e;border-color:transparent}
-    .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .price-card{
-      border-radius:20px;border:1px solid var(--line);padding:19px;
-      background:linear-gradient(145deg,rgba(18,27,60,.88),rgba(9,14,31,.92));
-      transition:.2s ease;position:relative;overflow:hidden
-    }
-    .price-card:hover{transform:translateY(-4px);border-color:rgba(76,201,255,.45);box-shadow:0 20px 40px rgba(0,0,0,.26)}
-    .price-card .type{font-size:12px;color:var(--blue);font-weight:900;text-transform:uppercase;letter-spacing:.12em}
-    .price-card h3{font-size:25px;margin:10px 0 4px}
-    .price-card .price{font-size:21px;font-weight:900;color:#fff}
-    .price-card .desc{font-size:13px;color:var(--muted);margin:10px 0 16px}
-    .mini-btn{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;font-weight:800;cursor:pointer}
-    .mini-btn:hover{background:rgba(76,201,255,.12)}
-    .hidden{display:none!important}
-    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .feature{padding:22px;border-radius:20px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
-    .feature-icon{font-size:28px}
-    .feature h3{margin:12px 0 7px}
-    .feature p{color:var(--muted);line-height:1.6;margin:0}
-    .order-box{
-      display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:26px;border:1px solid var(--line);
-      border-radius:26px;background:linear-gradient(145deg,rgba(18,27,60,.95),rgba(9,14,31,.95));box-shadow:var(--shadow)
-    }
-    .steps{display:grid;gap:12px}
-    .step{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
-    .step-num{flex:0 0 34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:900;background:rgba(76,201,255,.13);color:var(--blue)}
-    .step b{display:block;margin-bottom:3px}.step span{font-size:13px;color:var(--muted)}
-    .action-panel{display:flex;flex-direction:column;justify-content:center;gap:12px}
-    .action-panel .btn{width:100%}
-    .notice{font-size:13px;color:var(--muted);line-height:1.55}
-    .faq{display:grid;gap:10px;max-width:850px;margin:auto}
-    details{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.035);padding:16px 18px}
-    summary{cursor:pointer;font-weight:800}
-    details p{color:var(--muted);line-height:1.6;margin:12px 0 0}
-    footer{padding:34px 0 46px;text-align:center;color:var(--muted);border-top:1px solid var(--line)}
-    .toast{
-      position:fixed;left:50%;bottom:24px;transform:translate(-50%,24px);opacity:0;pointer-events:none;
-      background:#10192f;border:1px solid rgba(76,201,255,.35);padding:13px 18px;border-radius:14px;
-      box-shadow:var(--shadow);transition:.25s ease;z-index:100;font-weight:800
-    }
-    .toast.show{opacity:1;transform:translate(-50%,0)}
-    @media(max-width:860px){
-      .hero-grid,.order-box{grid-template-columns:1fr}
-      .price-grid,.feature-grid{grid-template-columns:repeat(2,1fr)}
-      .nav-links .nav-link:nth-child(-n+2){display:none}
-    }
-    @media(max-width:560px){
-      .hero{padding-top:45px}.price-grid,.feature-grid{grid-template-columns:1fr}
-      .hero-actions{display:grid}.hero-actions .btn{width:100%}
-      .nav-link{padding:9px 11px;font-size:13px}
-      .game-screen{min-height:270px}.big-robux strong{font-size:45px}
-    }
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#home">
-        <div class="logo">JS</div>
-        <div><strong>JuaStore</strong><span>ROBLOX VILOG</span></div>
-      </a>
-      <div class="nav-links">
-        <a class="nav-link" href="#pricelist">Pricelist</a>
-        <a class="nav-link" href="#cara-order">Cara Order</a>
-        <a class="nav-link" href="https://juastorepayment.biz.id/" target="_blank" rel="noopener">Payment</a>
-      </div>
-    </div>
-  </nav>
+<!doctype html><html lang="id"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050816"><title>JuaStore — Top Up Game</title>
+<meta name="description" content="JuaStore top up game murah, aman, dan cepat.">
+<style>
+:root{
+  --bg:#050816;--panel:#0b1126;--panel2:#101936;--line:rgba(255,255,255,.10);
+  --text:#f7f9ff;--muted:#a9b3cc;--cyan:#18c8ff;--blue:#3478ff;--purple:#8a38ff;
+  --green:#20df78;--gold:#ffd166;--shadow:0 22px 70px rgba(0,0,0,.42)
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 8% 8%,rgba(24,200,255,.12),transparent 28%),
+    radial-gradient(circle at 90% 12%,rgba(138,56,255,.15),transparent 30%),
+    linear-gradient(180deg,#060a18,#040611 80%);
+  min-height:100vh
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 90%)
+}
+a{text-decoration:none;color:inherit}button{font:inherit}
+.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+.nav{position:sticky;top:0;z-index:50;background:rgba(4,7,17,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:19px;font-weight:1000;color:white;
+background:linear-gradient(145deg,#11172e,#0c0e1b);border:1px solid rgba(138,56,255,.7);box-shadow:0 0 28px rgba(138,56,255,.38),inset 0 0 20px rgba(24,200,255,.08)}
+.logo span{background:linear-gradient(90deg,#fff,#9adfff,#a772ff);-webkit-background-clip:text;color:transparent}
+.brand strong{font-size:22px;letter-spacing:-.03em}.brand em{font-style:normal;color:#6d70ff}.brand small{display:block;font-size:10px;letter-spacing:.08em;color:var(--muted);margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.nav-link{padding:10px 13px;color:#d7dded;font-size:13px;font-weight:750;border-radius:11px}
+.nav-link:hover{background:rgba(255,255,255,.055)}
+.nav-pay{background:linear-gradient(135deg,var(--purple),var(--cyan));padding:12px 16px;border-radius:12px;font-weight:900}
+.hero{padding:56px 0 0}
+.hero-box{
+  border:1px solid var(--line);border-radius:28px;overflow:hidden;position:relative;min-height:500px;
+  background:
+    radial-gradient(circle at 78% 38%,rgba(24,200,255,.25),transparent 22%),
+    radial-gradient(circle at 90% 70%,rgba(138,56,255,.30),transparent 34%),
+    linear-gradient(105deg,#080d21 0%,#090d20 46%,#101438 100%);
+  box-shadow:var(--shadow)
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:500px}
+.hero-copy{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;width:max-content;padding:9px 13px;border-radius:10px;border:1px solid rgba(24,200,255,.5);color:#d9f7ff;background:rgba(24,200,255,.07);font-size:13px;font-weight:850}
+h1{font-size:clamp(43px,7vw,72px);line-height:.98;letter-spacing:-.05em;margin:18px 0}
+.gradient{background:linear-gradient(90deg,#fff 0%,#26d5ff 43%,#a844ff 82%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:570px;margin:0 0 24px}
+.trust-row{display:flex;gap:28px;flex-wrap:wrap;margin:4px 0 26px}
+.trust{display:flex;gap:10px;align-items:center}.trust-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:rgba(24,200,255,.08);border:1px solid rgba(24,200,255,.22)}
+.trust b{display:block;font-size:13px}.trust span{font-size:11px;color:var(--muted)}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{border:none;cursor:pointer;padding:14px 18px;border-radius:13px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:linear-gradient(135deg,var(--cyan),var(--purple));color:white;box-shadow:0 15px 35px rgba(72,85,255,.25)}
+.btn-alt{background:rgba(255,255,255,.035);border:1px solid rgba(24,200,255,.45);color:white}
+.hero-visual{position:relative;min-height:500px;display:grid;place-items:center;overflow:hidden}
+.orb{width:330px;height:330px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#47e7ff,#276bff 38%,#6d2cff 68%,transparent 70%);filter:drop-shadow(0 0 40px rgba(75,97,255,.45));opacity:.72}
+.hero-symbol{position:absolute;font-size:145px;font-weight:1000;text-shadow:0 0 35px rgba(255,255,255,.24);transform:rotate(-8deg)}
+.floating{position:absolute;padding:14px 16px;border-radius:16px;background:rgba(8,12,31,.80);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(12px);box-shadow:var(--shadow)}
+.f1{top:68px;right:30px}.f2{bottom:48px;left:22px}.f3{bottom:80px;right:34px}
+.floating b{display:block}.floating span{font-size:12px;color:var(--muted)}
+.section{padding:54px 0}
+.section-head{text-align:center;margin-bottom:28px}.section-head h2{font-size:clamp(30px,4.5vw,46px);margin:0 0 8px;letter-spacing:-.035em}.section-head p{margin:0;color:var(--muted)}
+.game-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.game-card{position:relative;min-height:390px;border-radius:24px;overflow:hidden;border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow)}
+.game-card:before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,14,.96) 12%,rgba(4,8,22,.48) 54%,rgba(3,6,16,.18));z-index:1}
+.game-card.roblox{background:radial-gradient(circle at 75% 25%,rgba(24,200,255,.55),transparent 26%),linear-gradient(140deg,#081222,#0b2752 56%,#050913)}
+.game-card.mlbb{background:radial-gradient(circle at 78% 22%,rgba(138,56,255,.58),transparent 27%),linear-gradient(140deg,#170824,#27104f 58%,#070712)}
+.game-art{position:absolute;right:35px;top:40px;font-size:125px;filter:drop-shadow(0 0 35px rgba(255,255,255,.15));z-index:0;transform:rotate(-8deg)}
+.game-content{position:relative;z-index:2;max-width:390px}
+.game-tag{font-size:13px;font-weight:1000;letter-spacing:.12em;color:#d8ebff}.game-card h3{font-size:42px;line-height:1;margin:10px 0}.game-card p{color:#c0c9df;line-height:1.6}
+.mini-list{display:grid;gap:8px;margin:15px 0 20px;color:#dfe7f7;font-size:14px}
+.game-btn{width:100%;padding:14px;border-radius:12px;border:none;font-weight:950;color:white;cursor:pointer}
+.roblox .game-btn{background:linear-gradient(90deg,#00bfff,#2867ff)}
+.mlbb .game-btn{background:linear-gradient(90deg,#8a38ff,#c52eff)}
+.feature-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:22px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025)}
+.feature{display:flex;gap:13px;align-items:flex-start;padding:10px}.feature-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(138,56,255,.12);border:1px solid rgba(138,56,255,.28);font-size:20px}
+.feature b{display:block;font-size:13px}.feature span{font-size:12px;color:var(--muted);line-height:1.5}
+.payment-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.pay-card{min-width:180px;padding:18px 22px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025);font-size:23px;font-weight:1000;text-align:center}
+.pay-card small{display:block;color:var(--muted);font-size:10px;font-weight:700;margin-top:3px}
+.page-title{padding:52px 0 20px;text-align:center}.page-title h1{font-size:clamp(38px,7vw,66px);margin-bottom:10px}.page-title p{color:var(--muted)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{padding:20px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,rgba(16,25,54,.92),rgba(7,11,27,.95));transition:.2s}
+.price-card:hover{transform:translateY(-4px);border-color:rgba(24,200,255,.45)}
+.price-card small{font-weight:900;color:var(--cyan);letter-spacing:.1em}.price-card h3{font-size:24px;margin:10px 0 4px}.price{font-size:20px;font-weight:950}.price-card p{color:var(--muted);font-size:13px}
+.order-btn{width:100%;margin-top:10px;padding:12px;border:none;border-radius:11px;background:linear-gradient(135deg,var(--cyan),var(--purple));color:white;font-weight:900;cursor:pointer}
+.order-box{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:25px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025)}
+.steps{display:grid;gap:10px}.step{display:flex;gap:12px;padding:13px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.02)}.num{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(24,200,255,.12);color:var(--cyan);font-weight:950}
+.step b{display:block}.step span{font-size:12px;color:var(--muted)}
+.action-stack{display:flex;flex-direction:column;justify-content:center;gap:12px}.action-stack .btn{width:100%}
+.faq{display:grid;gap:10px;max-width:850px;margin:auto}details{border:1px solid var(--line);border-radius:15px;padding:16px;background:rgba(255,255,255,.025)}summary{cursor:pointer;font-weight:850}details p{color:var(--muted);line-height:1.6}
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted)}
+.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:24px}.footer-grid h4{color:white;margin-top:0}.footer-grid a{display:block;margin:8px 0}
+.copy-toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;background:#10172d;border:1px solid rgba(24,200,255,.45);padding:13px 17px;border-radius:13px;transition:.2s;z-index:100;font-weight:850}.copy-toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.hero-grid,.order-box{grid-template-columns:1fr}.hero-visual{min-height:360px}.game-grid{grid-template-columns:1fr}.feature-bar{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.nav-links .hide-mobile{display:none}}
+@media(max-width:580px){.hero-copy{padding:38px 22px}.hero-box{border-radius:20px}.hero-visual{min-height:300px}.orb{width:230px;height:230px}.hero-symbol{font-size:100px}.floating{font-size:12px}.f1{top:25px}.f2{bottom:30px}.f3{display:none}.actions{display:grid}.actions .btn{width:100%}.feature-bar,.price-grid,.footer-grid{grid-template-columns:1fr}.game-card{min-height:360px;padding:22px}.game-card h3{font-size:36px}.game-art{font-size:100px;right:20px}.nav-inner{min-height:68px}.brand small{display:none}.nav-link{display:none}.nav-pay{display:block}}
+</style></head><body>
+<nav class="nav"><div class="wrap nav-inner">
+<a class="brand" href="index.html"><div class="logo"><span>JS</span></div><div><strong>Jua<em>Store</em></strong><small>TOP UP GAME • AMAN • CEPAT</small></div></a>
+<div class="nav-links">
+<a class="nav-link hide-mobile" href="index.html">BERANDA</a>
+<a class="nav-link hide-mobile" href="roblox.html">ROBLOX</a>
+<a class="nav-link hide-mobile" href="mobile-legends.html">MOBILE LEGENDS</a>
+<a class="nav-link hide-mobile" href="#cara-order">CARA ORDER</a>
+<a class="nav-pay" href="https://juastorepayment.biz.id/" target="_blank" rel="noopener">💳 PAYMENT</a>
+</div></div></nav>
 
-  <main id="home">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">🎮 TOP UP ROBUX TERPERCAYA</div>
-          <h1><span class="gradient">Upgrade Roblox</span><br>Tanpa Ribet.</h1>
-          <p class="lead">Top up Robux murah dengan proses cepat 1–30 menit. Cocok untuk upgrade avatar, beli item, gamepass, dan Roblox Premium.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#pricelist">💎 Lihat Pricelist</a>
-            <button class="btn btn-secondary" id="copyTop">📋 Salin Format Vilog</button>
-            <a class="btn btn-pay" href="https://juastorepayment.biz.id/" target="_blank" rel="noopener">💳 Buka Payment</a>
-          </div>
-        </div>
+<main>
+<section class="hero"><div class="wrap hero-box"><div class="hero-grid">
+<div class="hero-copy">
+<div class="eyebrow">#1 TOP UP GAME TERPERCAYA</div>
+<h1>TOP UP GAME<br><span class="gradient">MURAH & AMAN</span></h1>
+<p class="lead">Top up Roblox dan Mobile Legends dengan harga bersahabat, proses cepat, dan pelayanan terpercaya.</p>
+<div class="trust-row">
+<div class="trust"><div class="trust-icon">🛡️</div><div><b>AMAN</b><span>Terpercaya</span></div></div>
+<div class="trust"><div class="trust-icon">⚡</div><div><b>CEPAT</b><span>Proses praktis</span></div></div>
+<div class="trust"><div class="trust-icon">🏅</div><div><b>TERJAMIN</b><span>Admin responsif</span></div></div>
+</div>
+<div class="actions">
+<a class="btn btn-main" href="https://wa.me/6285111662004?text=Halo%20Admin%201%2C%20saya%20mau%20top%20up%20game." target="_blank">💬 CHAT ADMIN 1</a>
+<a class="btn btn-alt" href="https://juastorepayment.biz.id/" target="_blank">💳 PAYMENT JUASTORE</a>
+</div></div>
+<div class="hero-visual">
+<div class="orb"></div><div class="hero-symbol">🎮</div>
+<div class="floating f1"><b>OPEN 24 JAM</b><span>Siap melayani</span></div>
+<div class="floating f2"><b>ROBLOX</b><span>Robux Reguler & Sultan</span></div>
+<div class="floating f3"><b>MLBB</b><span>Diamond harga terbaik</span></div>
+</div></div></div></section>
 
-        <div class="hero-card">
-          <div class="game-screen">
-            <div class="status">
-              <span class="online"><span class="dot"></span> Store Online</span>
-              <span class="badge">Fast Process</span>
-            </div>
-            <div class="big-robux">
-              <small>Mulai dari</small>
-              <strong>80 R$</strong>
-              <span>Harga mulai Rp14.000</span>
-            </div>
-            <div class="badges">
-              <span class="badge">⚡ 1–30 Menit</span>
-              <span class="badge">🛡️ Aman</span>
-              <span class="badge">💬 Admin Responsif</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="section"><div class="wrap">
+<div class="section-head"><h2>PILIH GAME FAVORITMU</h2><p>Top up Robux dan Diamond hanya di JuaStore</p></div>
+<div class="game-grid">
+<article class="game-card roblox"><div class="game-art">⬡</div><div class="game-content">
+<div class="game-tag">ROBLOX</div><h3>TOP UP <span style="color:#20c9ff">ROBUX</span></h3>
+<p>Top up Robux murah dengan pilihan paket reguler, sultan, dan premium.</p>
+<div class="mini-list"><span>◉ Robux Reguler</span><span>◉ Robux Sultan</span><span>◉ Metode top up aman</span></div>
+<a class="game-btn" href="roblox.html">LIHAT PRICELIST ROBUX →</a></div></article>
+<article class="game-card mlbb"><div class="game-art">💎</div><div class="game-content">
+<div class="game-tag">MOBILE LEGENDS</div><h3>TOP UP <span style="color:#a95aff">DIAMOND</span></h3>
+<p>Top up Diamond MLBB praktis menggunakan User ID dan Zone ID.</p>
+<div class="mini-list"><span>◉ Harga terbaik</span><span>◉ Proses cepat</span><span>◉ Tidak perlu password</span></div>
+<a class="game-btn" href="mobile-legends.html">LIHAT PRICELIST DIAMOND →</a></div></article>
+</div></div></section>
 
-    <section id="pricelist">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Pricelist Robux</h2>
-          <p>Pilih kategori dan jumlah Robux yang kamu butuhkan.</p>
-        </div>
-        <div class="tabs">
-          <button class="tab active" data-tab="reguler">Robux Reguler</button>
-          <button class="tab" data-tab="sultan">Robux Sultan</button>
-          <button class="tab" data-tab="premium">Upgrade Premium</button>
-        </div>
+<section class="section" style="padding-top:8px"><div class="wrap feature-bar">
+<div class="feature"><div class="feature-icon">🛡️</div><div><b>100% AMAN</b><span>Transaksi diproses dengan data minimum.</span></div></div>
+<div class="feature"><div class="feature-icon">⚡</div><div><b>PROSES CEPAT</b><span>Admin segera memproses pesanan.</span></div></div>
+<div class="feature"><div class="feature-icon">👍</div><div><b>HARGA TERBAIK</b><span>Harga bersahabat untuk gamer.</span></div></div>
+<div class="feature"><div class="feature-icon">🎧</div><div><b>LAYANAN 24 JAM</b><span>Admin siap membantu pelanggan.</span></div></div>
+</div></section>
 
-        <div class="price-grid" id="reguler">
-          <div class="price-card"><div class="type">Reguler</div><h3>80 Robux</h3><div class="price">Rp14.000</div><p class="desc">Cocok untuk pembelian ringan.</p><button class="mini-btn order-item" data-item="80 Robux - Rp14.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>160 Robux</h3><div class="price">Rp28.000</div><p class="desc">Paket hemat pemula.</p><button class="mini-btn order-item" data-item="160 Robux - Rp28.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>240 Robux</h3><div class="price">Rp42.000</div><p class="desc">Lebih banyak pilihan item.</p><button class="mini-btn order-item" data-item="240 Robux - Rp42.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>320 Robux</h3><div class="price">Rp56.000</div><p class="desc">Untuk upgrade avatar.</p><button class="mini-btn order-item" data-item="320 Robux - Rp56.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>400 Robux</h3><div class="price">Rp70.000</div><p class="desc">Paket Robux populer.</p><button class="mini-btn order-item" data-item="400 Robux - Rp70.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>500 Robux</h3><div class="price">Rp75.000</div><p class="desc">Value terbaik di kelasnya.</p><button class="mini-btn order-item" data-item="500 Robux - Rp75.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>660 Robux</h3><div class="price">Rp103.000</div><p class="desc">Siap untuk item premium.</p><button class="mini-btn order-item" data-item="660 Robux - Rp103.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>800 Robux</h3><div class="price">Rp140.000</div><p class="desc">Lebih bebas belanja item.</p><button class="mini-btn order-item" data-item="800 Robux - Rp140.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>1000 Robux</h3><div class="price">Rp150.000</div><p class="desc">Pilihan favorit pemain aktif.</p><button class="mini-btn order-item" data-item="1000 Robux - Rp150.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Reguler</div><h3>1500 Robux</h3><div class="price">Rp225.000</div><p class="desc">Paket besar lebih puas.</p><button class="mini-btn order-item" data-item="1500 Robux - Rp225.000">Pilih Paket</button></div>
-        </div>
+<section class="section"><div class="wrap">
+<div class="section-head"><h2>METODE PEMBAYARAN</h2><p>Pilih metode yang tersedia di halaman Payment JuaStore</p></div>
+<div class="payment-row"><div class="pay-card">DANA<small>E-WALLET</small></div><div class="pay-card">GoPay<small>E-WALLET</small></div><div class="pay-card">QRIS<small>ALL PAYMENT</small></div></div>
+</div></section>
+</main>
 
-        <div class="price-grid hidden" id="sultan">
-          <div class="price-card"><div class="type">Sultan</div><h3>2000 Robux</h3><div class="price">Rp290.000</div><p class="desc">Untuk pemain serius.</p><button class="mini-btn order-item" data-item="2000 Robux - Rp290.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Sultan</div><h3>2500 Robux</h3><div class="price">Rp365.000</div><p class="desc">Belanja item tanpa batas kecil.</p><button class="mini-btn order-item" data-item="2500 Robux - Rp365.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Sultan</div><h3>3000 Robux</h3><div class="price">Rp440.000</div><p class="desc">Paket high tier.</p><button class="mini-btn order-item" data-item="3000 Robux - Rp440.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Sultan</div><h3>4000 Robux</h3><div class="price">Rp580.000</div><p class="desc">Upgrade koleksi lebih cepat.</p><button class="mini-btn order-item" data-item="4000 Robux - Rp580.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Sultan</div><h3>5000 Robux</h3><div class="price">Rp750.000</div><p class="desc">Paket sultan favorit.</p><button class="mini-btn order-item" data-item="5000 Robux - Rp750.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Sultan</div><h3>10.000 Robux</h3><div class="price">Rp1.400.000</div><p class="desc">Paket ultimate.</p><button class="mini-btn order-item" data-item="10.000 Robux - Rp1.400.000">Pilih Paket</button></div>
-        </div>
-
-        <div class="price-grid hidden" id="premium">
-          <div class="price-card"><div class="type">Premium</div><h3>450 Premium</h3><div class="price">Rp75.000</div><p class="desc">Upgrade premium entry.</p><button class="mini-btn order-item" data-item="450 Premium - Rp75.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Premium</div><h3>1000 Premium</h3><div class="price">Rp150.000</div><p class="desc">Premium untuk pemain aktif.</p><button class="mini-btn order-item" data-item="1000 Premium - Rp150.000">Pilih Paket</button></div>
-          <div class="price-card"><div class="type">Premium</div><h3>2200 Premium</h3><div class="price">Rp320.000</div><p class="desc">Premium paket besar.</p><button class="mini-btn order-item" data-item="2200 Premium - Rp320.000">Pilih Paket</button></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Kenapa JuaStore?</h2>
-          <p>Proses top up dibuat cepat, sederhana, dan jelas.</p>
-        </div>
-        <div class="feature-grid">
-          <div class="feature"><div class="feature-icon">⚡</div><h3>Fast Process</h3><p>Estimasi proses sekitar 1–30 menit setelah data dan pembayaran dikonfirmasi.</p></div>
-          <div class="feature"><div class="feature-icon">🛡️</div><h3>Aman & Trusted</h3><p>Data order diproses sesuai format yang dikirimkan kepada Admin 1.</p></div>
-          <div class="feature"><div class="feature-icon">💬</div><h3>Mudah Dihubungi</h3><p>Tombol order langsung mengarahkan kamu ke WhatsApp Admin 1.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cara-order">
-      <div class="wrap">
-        <div class="order-box">
-          <div>
-            <h2 style="margin-top:0">Cara Order</h2>
-            <div class="steps">
-              <div class="step"><div class="step-num">1</div><div><b>Pilih paket</b><span>Pilih jumlah Robux atau Premium dari pricelist.</span></div></div>
-              <div class="step"><div class="step-num">2</div><div><b>Salin format vilog</b><span>Tekan tombol salin, lalu isi data dengan lengkap.</span></div></div>
-              <div class="step"><div class="step-num">3</div><div><b>Lakukan pembayaran</b><span>Buka website Payment JuaStore dan bayar sesuai total.</span></div></div>
-              <div class="step"><div class="step-num">4</div><div><b>Kirim ke Admin 1</b><span>Kirim format lengkap dan bukti pembayaran melalui chat pribadi.</span></div></div>
-            </div>
-          </div>
-          <div class="action-panel">
-            <button class="btn btn-secondary" id="copyBottom">📋 Salin Format Vilog</button>
-            <a class="btn btn-pay" href="https://juastorepayment.biz.id/" target="_blank" rel="noopener">💳 Payment JuaStore</a>
-            <a class="btn btn-primary" id="waOrder" href="https://wa.me/6285111662004?text=Halo%20Admin%201%2C%20saya%20mau%20order%20Robux." target="_blank" rel="noopener">💬 Chat Admin 1</a>
-            <p class="notice">Pastikan username, password, jumlah pembelian, dan minimal 3 backup code sudah benar sebelum dikirim.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="section-head"><h2>FAQ</h2><p>Pertanyaan yang sering ditanyakan.</p></div>
-        <div class="faq">
-          <details><summary>Berapa lama proses top up?</summary><p>Estimasi normal sekitar 1–30 menit setelah format dan pembayaran dikonfirmasi.</p></details>
-          <details><summary>Apakah backup code wajib?</summary><p>Ya, backup code wajib diisi minimal 3 kode agar proses bisa dilakukan.</p></details>
-          <details><summary>Bagaimana cara membayar?</summary><p>Tekan tombol Payment JuaStore untuk membuka halaman pembayaran resmi.</p></details>
-          <details><summary>Ke mana format order dikirim?</summary><p>Format yang sudah diisi lengkap dikirim melalui chat pribadi ke Admin 1.</p></details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">© 2026 JuaStore — Roblox Vilog. All rights reserved.</div>
-  </footer>
-
-  <div class="toast" id="toast">✅ Format berhasil disalin</div>
-
-  <script>
-    const orderFormat = `╭━━━〔 🎮 *FORMAT ORDER ROBUX* 🎮 〕━━━╮
-
-𐙚 *_Username Roblox_* »
-𐙚 *_Password Roblox_* »
-𐙚 *_Jumlah Pembelian Robux_* »
-𐙚 *_Backup Code_* » (wajib, min. 3)
-
-┏━━━━━━━━━━━━━━━┓
-
-⚠️ *HARAP DI BACA*
-
-• Mohon cek login akun terlebih dahulu sebelum mengirim password
-• Isi format dengan jelas & benar agar proses lebih cepat
-• Pastikan pembayaran sudah sesuai pricelist
-• Backup code WAJIB diisi
-• Kesalahan username/password bukan tanggung jawab seller
-
-┗━━━━━━━━━━━━━━━┛
-
-*#Setelah mengisi format order, harap kirimkan format order ke admin 1*
-
-╰━➤ *_PROSES AKAN LEBIH CEPAT JIKA FORMAT DIISI DENGAN LENGKAP & BENAR_* 🚀`;
-
-    const toast = document.getElementById("toast");
-
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2300);
-    }
-
-    async function copyFormat() {
-      try {
-        await navigator.clipboard.writeText(orderFormat);
-        showToast("✅ Format Order Robux berhasil disalin");
-      } catch (error) {
-        const area = document.createElement("textarea");
-        area.value = orderFormat;
-        document.body.appendChild(area);
-        area.select();
-        document.execCommand("copy");
-        area.remove();
-        showToast("✅ Format Order Robux berhasil disalin");
-      }
-    }
-
-    document.getElementById("copyTop").addEventListener("click", copyFormat);
-    document.getElementById("copyBottom").addEventListener("click", copyFormat);
-
-    document.querySelectorAll(".tab").forEach(tab => {
-      tab.addEventListener("click", () => {
-        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-        document.querySelectorAll(".price-grid").forEach(grid => grid.classList.add("hidden"));
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.tab).classList.remove("hidden");
-      });
-    });
-
-    document.querySelectorAll(".order-item").forEach(button => {
-      button.addEventListener("click", () => {
-        const item = button.dataset.item;
-        const message = encodeURIComponent(`Halo Admin 1, saya mau order ${item}. Mohon kirim format vilognya.`);
-        window.open(`https://wa.me/6285111662004?text=${message}`, "_blank");
-      });
-    });
-  </script>
-</body>
-</html>
+<footer><div class="wrap footer-grid">
+<div><a class="brand" href="index.html"><div class="logo"><span>JS</span></div><div><strong>Jua<em>Store</em></strong><small>TOP UP GAME • AMAN • CEPAT</small></div></a><p>Top up game murah, aman, dan terpercaya.</p></div>
+<div><h4>Link Cepat</h4><a href="index.html">Beranda</a><a href="roblox.html">Roblox</a><a href="mobile-legends.html">Mobile Legends</a></div>
+<div><h4>Hubungi Kami</h4><a href="https://wa.me/6285111662004" target="_blank">WhatsApp Admin 1</a><span>6285111662004</span></div>
+</div><div class="wrap" style="text-align:center;margin-top:26px;font-size:12px">© 2026 JuaStore. All rights reserved.</div></footer>
+<div class="copy-toast" id="toast">Berhasil disalin</div>
+<script></script></body></html>
