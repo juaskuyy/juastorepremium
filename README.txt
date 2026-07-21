@@ -1,18 +1,16 @@
-JUASTORE PREMIUM WEBSITE
+JUASTORE ROBLOX PREMIUM WEBSITE
 
-File utama: index.html
-Domain: juastorepremium.biz.id
+Cara pasang:
+1. Ekstrak file ZIP.
+2. Upload index.html dan CNAME ke root repository GitHub.
+3. Commit changes.
+4. Tunggu deploy GitHub Pages sekitar 1-3 menit.
+5. Buka https://juastore.web.id
 
-Cara upload cepat:
-1. Upload index.html dan CNAME ke repository GitHub.
-2. Buka Settings > Pages.
-3. Pilih Deploy from branch, branch main, folder /root.
-4. Pada Custom domain masukkan: juastorepremium.biz.id
-5. Atur DNS domain mengikuti petunjuk GitHub Pages atau hosting yang digunakan.
-
-Nomor WhatsApp saat ini di website:
-6285111662004
-
-Untuk mengganti nomor, cari semua teks:
-6285111662004
-lalu ganti dengan nomor baru tanpa tanda +.
+Fitur:
+- Tema gaming Roblox
+- Pricelist dengan tab kategori
+- Tombol order per paket
+- Tombol Payment JuaStore
+- Tombol salin Format Vilog
+- Responsif untuk HP dan desktop
