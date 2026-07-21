@@ -1,11 +1,15 @@
-JUASTORE FINAL — IKON PRODUK MUNCUL DI SETIAP KARTU
+JUASTORE ULTRA FINAL
 
-Perbaikan:
-- Ikon Robux muncul di setiap paket Roblox
-- Ikon Diamond muncul di setiap paket Mobile Legends
-- Ikon tertanam langsung di HTML
-- Tidak perlu upload folder assets
-- Tombol Salin Format tetap gradasi dan tulisannya putih
+Fitur:
+- Search nominal Robux & Diamond
+- Badge Laris, Best Seller, Hemat
+- Animasi hover dan tombol
+- Loading screen logo JS
+- Hero lebih rapi
+- Ikon paket lebih bervariasi
+- Footer Telegram Bot: https://t.me/juastorepremium_bot
+- Footer Grup WhatsApp: https://chat.whatsapp.com/HSQcXPrUVSlBMMjtqWcCDG?s=cl&p=a&ilr=0&amv=2
+- Semua gambar tertanam di HTML, tanpa folder assets
 
 Upload dan timpa:
 - index.html
@@ -13,6 +17,7 @@ Upload dan timpa:
 - mobile-legends.html
 - CNAME
 
-Setelah commit:
-https://juastore.web.id/roblox.html?v=icons
-https://juastore.web.id/mobile-legends.html?v=icons
+Cek:
+https://juastore.web.id/?v=ultrafinal
+https://juastore.web.id/roblox.html?v=ultrafinal
+https://juastore.web.id/mobile-legends.html?v=ultrafinal
