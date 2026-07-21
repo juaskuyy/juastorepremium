@@ -1,15 +1,12 @@
-JUASTORE ULTRA FINAL
+JUASTORE ULTRA FINAL — LOADING 3,5 DETIK
 
-Fitur:
-- Search nominal Robux & Diamond
-- Badge Laris, Best Seller, Hemat
-- Animasi hover dan tombol
-- Loading screen logo JS
-- Hero lebih rapi
-- Ikon paket lebih bervariasi
-- Footer Telegram Bot: https://t.me/juastorepremium_bot
-- Footer Grup WhatsApp: https://chat.whatsapp.com/HSQcXPrUVSlBMMjtqWcCDG?s=cl&p=a&ilr=0&amv=2
-- Semua gambar tertanam di HTML, tanpa folder assets
+Perubahan loading screen:
+- Logo besar JS
+- Tulisan JuaStore
+- Tagline PREMIUM APPS & TOP UP GAME
+- Status Menyiapkan halaman / Hampir selesai
+- Durasi sekitar 3,5 detik
+- Progress bar dan animasi lebih halus
 
 Upload dan timpa:
 - index.html
@@ -17,7 +14,7 @@ Upload dan timpa:
 - mobile-legends.html
 - CNAME
 
-Cek:
-https://juastore.web.id/?v=ultrafinal
-https://juastore.web.id/roblox.html?v=ultrafinal
-https://juastore.web.id/mobile-legends.html?v=ultrafinal
+Setelah commit, cek:
+https://juastore.web.id/?v=loading35
+https://juastore.web.id/roblox.html?v=loading35
+https://juastore.web.id/mobile-legends.html?v=loading35

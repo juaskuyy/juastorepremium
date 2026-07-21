@@ -184,6 +184,50 @@ box-shadow:0 16px 35px #08cfff22;
 
 
 /* ULTRA FINAL ENHANCEMENTS */
+
+.loader-brand{
+    margin-top:16px;
+    font-size:25px;
+    font-weight:1000;
+    letter-spacing:-.02em;
+    background:linear-gradient(90deg,#ffffff,#09cfff,#a43bff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+.loader-tagline{
+    margin-top:5px;
+    color:#c6d0e8;
+    font-size:11px;
+    font-weight:850;
+    letter-spacing:.18em;
+}
+.loader-status{
+    margin-top:10px;
+    color:#7f8aa8;
+    font-size:11px;
+}
+.loader-bar{
+    width:210px!important;
+    margin-top:22px!important;
+}
+.loader-bar:after{
+    width:35%!important;
+    animation:loadLong 3.35s cubic-bezier(.22,.8,.25,1) forwards!important;
+}
+@keyframes loadLong{
+    0%{transform:translateX(-110%)}
+    30%{transform:translateX(35%)}
+    68%{transform:translateX(125%)}
+    100%{transform:translateX(290%)}
+}
+.loader-logo{
+    animation:pulse 1.15s infinite alternate, loaderFloat 2.2s ease-in-out infinite;
+}
+@keyframes loaderFloat{
+    0%,100%{translate:0 0}
+    50%{translate:0 -5px}
+}
+
 #loader{
 position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
 background:radial-gradient(circle at center,#111939,#02040d 65%);
@@ -263,7 +307,15 @@ border:1px solid var(--line);background:rgba(255,255,255,.025);color:#fff!import
 
 @media(max-width:900px){.games,.orderbox{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.menu a:not(.payment){display:none}}
 @media(max-width:580px){.actions{display:grid}.actions .btn{width:100%}.game{min-height:420px;padding:22px}.game-content{max-width:72%}.game h3{font-size:36px}.features,.price-grid,.footer{grid-template-columns:1fr}.brand small{display:none}.payment{font-size:13px;padding:12px!important}}
-</style></head><body><div id="loader"><div class="loader-inner"><div class="loader-logo">JS</div><div style="margin-top:12px;font-weight:900">JuaStore</div><div class="loader-bar"></div></div></div><nav><div class="wrap nav"><a class="brand" href="index.html"><div class="logo">JS</div><div><b>Jua<span>Store</span></b><small>TOP UP GAME • AMAN • CEPAT</small></div></a><div class="menu"><a href="index.html">BERANDA</a><a href="roblox.html">ROBLOX</a><a href="mobile-legends.html">MOBILE LEGENDS</a><a href="#cara-order">CARA ORDER</a><a class="payment" href="https://juastorepayment.biz.id/" target="_blank">💳 PAYMENT</a></div></div></nav><main><section class="page-title"><div class="wrap"><div class="eyebrow">ROBLOX TOP UP</div><h1>TOP UP <span class="grad">ROBUX</span></h1><p>Pilih nominal Robux favoritmu.</p></div></section><section><div class="wrap">
+</style></head><body><div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">JS</div>
+    <div class="loader-brand">JuaStore</div>
+    <div class="loader-tagline">PREMIUM APPS &amp; TOP UP GAME</div>
+    <div class="loader-bar"></div>
+    <div class="loader-status">Menyiapkan halaman...</div>
+  </div>
+</div><nav><div class="wrap nav"><a class="brand" href="index.html"><div class="logo">JS</div><div><b>Jua<span>Store</span></b><small>TOP UP GAME • AMAN • CEPAT</small></div></a><div class="menu"><a href="index.html">BERANDA</a><a href="roblox.html">ROBLOX</a><a href="mobile-legends.html">MOBILE LEGENDS</a><a href="#cara-order">CARA ORDER</a><a class="payment" href="https://juastorepayment.biz.id/" target="_blank">💳 PAYMENT</a></div></div></nav><main><section class="page-title"><div class="wrap"><div class="eyebrow">ROBLOX TOP UP</div><h1>TOP UP <span class="grad">ROBUX</span></h1><p>Pilih nominal Robux favoritmu.</p></div></section><section><div class="wrap">
 <div class="price-tools">
 <input id="priceSearch" class="search-box" type="search" placeholder="Cari nominal Robux..." autocomplete="off">
 <div id="searchCount" class="search-count"></div>
@@ -636,7 +688,24 @@ const f=`╭━━━〔 🎮 *FORMAT ORDER ROBUX* 🎮 〕━━━╮
 ⚠️ Jangan pernah mengirim password, OTP, cookie, atau backup code.
 *Setelah mengisi format, kirim ke Admin 1 beserta bukti pembayaran.*`;
 const t=document.getElementById('toast');function show(x){t.textContent=x;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}document.getElementById('copy').onclick=async()=>{await navigator.clipboard.writeText(f);show('✅ Format Roblox disalin')};document.querySelectorAll('.rbbtn').forEach(b=>b.onclick=()=>window.open('https://wa.me/6285111662004?text='+encodeURIComponent('Halo Admin 1, saya mau order '+b.dataset.item+'\nUsername Roblox:\nMetode top up:'),'_blank'));
-</script><script>window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),450));</script>
+</script><script>
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  const status = loader?.querySelector('.loader-status');
+
+  setTimeout(() => {
+    if (status) status.textContent = 'Hampir selesai...';
+  }, 2100);
+
+  setTimeout(() => {
+    loader?.classList.add('hide');
+  }, 3500);
+
+  setTimeout(() => {
+    loader?.remove();
+  }, 4100);
+});
+</script>
 <script>
 const q=document.getElementById('priceSearch');
 const cards=[...document.querySelectorAll('.price-card')];

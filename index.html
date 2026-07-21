@@ -52,6 +52,50 @@ content:"";position:absolute;inset:0;background-repeat:no-repeat;background-size
 
 
 /* ULTRA FINAL ENHANCEMENTS */
+
+.loader-brand{
+    margin-top:16px;
+    font-size:25px;
+    font-weight:1000;
+    letter-spacing:-.02em;
+    background:linear-gradient(90deg,#ffffff,#09cfff,#a43bff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+.loader-tagline{
+    margin-top:5px;
+    color:#c6d0e8;
+    font-size:11px;
+    font-weight:850;
+    letter-spacing:.18em;
+}
+.loader-status{
+    margin-top:10px;
+    color:#7f8aa8;
+    font-size:11px;
+}
+.loader-bar{
+    width:210px!important;
+    margin-top:22px!important;
+}
+.loader-bar:after{
+    width:35%!important;
+    animation:loadLong 3.35s cubic-bezier(.22,.8,.25,1) forwards!important;
+}
+@keyframes loadLong{
+    0%{transform:translateX(-110%)}
+    30%{transform:translateX(35%)}
+    68%{transform:translateX(125%)}
+    100%{transform:translateX(290%)}
+}
+.loader-logo{
+    animation:pulse 1.15s infinite alternate, loaderFloat 2.2s ease-in-out infinite;
+}
+@keyframes loaderFloat{
+    0%,100%{translate:0 0}
+    50%{translate:0 -5px}
+}
+
 #loader{
 position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
 background:radial-gradient(circle at center,#111939,#02040d 65%);
@@ -131,7 +175,15 @@ border:1px solid var(--line);background:rgba(255,255,255,.025);color:#fff!import
 
 @media(max-width:900px){.games,.orderbox{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.menu a:not(.payment){display:none}}
 @media(max-width:580px){.actions{display:grid}.actions .btn{width:100%}.game{min-height:420px;padding:22px}.game-content{max-width:72%}.game h3{font-size:36px}.features,.price-grid,.footer{grid-template-columns:1fr}.brand small{display:none}.payment{font-size:13px;padding:12px!important}}
-</style></head><body><div id="loader"><div class="loader-inner"><div class="loader-logo">JS</div><div style="margin-top:12px;font-weight:900">JuaStore</div><div class="loader-bar"></div></div></div><nav><div class="wrap nav"><a class="brand" href="index.html"><div class="logo">JS</div><div><b>Jua<span>Store</span></b><small>TOP UP GAME • AMAN • CEPAT</small></div></a><div class="menu"><a href="index.html">BERANDA</a><a href="roblox.html">ROBLOX</a><a href="mobile-legends.html">MOBILE LEGENDS</a><a href="#cara-order">CARA ORDER</a><a class="payment" href="https://juastorepayment.biz.id/" target="_blank">💳 PAYMENT</a></div></div></nav><main>
+</style></head><body><div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">JS</div>
+    <div class="loader-brand">JuaStore</div>
+    <div class="loader-tagline">PREMIUM APPS &amp; TOP UP GAME</div>
+    <div class="loader-bar"></div>
+    <div class="loader-status">Menyiapkan halaman...</div>
+  </div>
+</div><nav><div class="wrap nav"><a class="brand" href="index.html"><div class="logo">JS</div><div><b>Jua<span>Store</span></b><small>TOP UP GAME • AMAN • CEPAT</small></div></a><div class="menu"><a href="index.html">BERANDA</a><a href="roblox.html">ROBLOX</a><a href="mobile-legends.html">MOBILE LEGENDS</a><a href="#cara-order">CARA ORDER</a><a class="payment" href="https://juastorepayment.biz.id/" target="_blank">💳 PAYMENT</a></div></div></nav><main>
 <section class="hero"><div class="wrap hero-card"><div class="hero-content"><div class="eyebrow">#1 TOP UP GAME TERPERCAYA</div><h1>TOP UP GAME<br><span class="grad">MURAH & AMAN</span></h1><p class="lead">Top up Robux dan Diamond Mobile Legends hanya di JuaStore. Harga bersahabat, proses praktis, dan admin responsif.</p><div class="trust"><div><i>🛡️</i><span><b>AMAN</b>Terpercaya</span></div><div><i>⚡</i><span><b>CEPAT</b>Proses praktis</span></div><div><i>👍</i><span><b>MURAH</b>Harga terbaik</span></div><div><i>🎧</i><span><b>24 JAM</b>Siap melayani</span></div></div><div class="actions"><a class="btn primary" href="https://wa.me/6285111662004?text=Halo%20Admin%201%2C%20saya%20mau%20top%20up%20game.">💬 CHAT ADMIN 1</a><a class="btn outline" href="https://juastorepayment.biz.id/">💳 PAYMENT JUASTORE</a></div></div></div></section>
 <section><div class="wrap"><div class="head"><h2>PILIH GAME FAVORITMU</h2><p>Roblox dan Mobile Legends</p></div><div class="games"><article class="game rb"><div class="game-content"><div>ROBLOX</div><h3>TOP UP <span style="color:#07cfff">ROBUX</span></h3><p>Pilih paket Robux reguler, sultan, dan premium.</p><div class="list"><span>● Harga terbaik</span><span>● Proses praktis</span><span>● Metode top up aman</span></div><a class="game-link" href="roblox.html">LIHAT PRICELIST ROBUX →</a></div></article><article class="game ml"><div class="game-content"><div>MOBILE LEGENDS</div><h3>TOP UP <span style="color:#b14cff">DIAMOND</span></h3><p>Top up Diamond menggunakan User ID dan Zone ID.</p><div class="list"><span>● Harga terbaik</span><span>● Proses cepat</span><span>● Tidak perlu password</span></div><a class="game-link" href="mobile-legends.html">LIHAT PRICELIST DIAMOND →</a></div></article></div></div></section>
 <section style="padding-top:0"><div class="wrap features"><div class="feature"><i>🛒</i><div><b>1. PILIH PRODUK</b><span>Pilih game dan nominal.</span></div></div><div class="feature"><i>💳</i><div><b>2. BAYAR</b><span>Lakukan pembayaran.</span></div></div><div class="feature"><i>⚡</i><div><b>3. DIPROSES</b><span>Admin memproses pesanan.</span></div></div><div class="feature"><i>🛡️</i><div><b>4. SELESAI</b><span>Robux atau Diamond masuk.</span></div></div></div></section>
@@ -142,4 +194,21 @@ border:1px solid var(--line);background:rgba(255,255,255,.025);color:#fff!import
 <div class="footer-socials">
 <a href="https://t.me/juastorepremium_bot" target="_blank">🤖 Telegram Bot</a>
 <a href="https://chat.whatsapp.com/HSQcXPrUVSlBMMjtqWcCDG?s=cl&p=a&ilr=0&amv=2" target="_blank">👥 Grup WhatsApp</a>
-</div></div></div></footer><script>window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),450));</script></body></html>
+</div></div></div></footer><script>
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  const status = loader?.querySelector('.loader-status');
+
+  setTimeout(() => {
+    if (status) status.textContent = 'Hampir selesai...';
+  }, 2100);
+
+  setTimeout(() => {
+    loader?.classList.add('hide');
+  }, 3500);
+
+  setTimeout(() => {
+    loader?.remove();
+  }, 4100);
+});
+</script></body></html>
