@@ -1,16 +1,17 @@
-JUASTORE ROBLOX PREMIUM WEBSITE
+JUASTORE GAMING — 1 DOMAIN, 1 WEBSITE
 
-Cara pasang:
-1. Ekstrak file ZIP.
-2. Upload index.html dan CNAME ke root repository GitHub.
-3. Commit changes.
-4. Tunggu deploy GitHub Pages sekitar 1-3 menit.
+Isi:
+- index.html = katalog utama
+- roblox.html = pricelist Robux
+- mobile-legends.html = pricelist Diamond MLBB
+- CNAME = juastore.web.id
+
+Cara upload:
+1. Ekstrak ZIP.
+2. Upload semua file ke root repository GitHub Pages.
+3. Klik Commit changes.
+4. Tunggu deploy sekitar 1–3 menit.
 5. Buka https://juastore.web.id
 
-Fitur:
-- Tema gaming Roblox
-- Pricelist dengan tab kategori
-- Tombol order per paket
-- Tombol Payment JuaStore
-- Tombol salin Format Vilog
-- Responsif untuk HP dan desktop
+Catatan keamanan:
+Website Roblox tidak meminta password, OTP, cookie, atau backup code.
