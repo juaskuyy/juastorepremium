@@ -1,10 +1,12 @@
-VERSI FIX TANPA TEKS DOUBLE
+VERSI HALAMAN ROBLOX & MOBILE LEGENDS BERGAMBAR
 
-Upload dan timpa 4 file:
+Upload dan timpa:
 - index.html
 - roblox.html
 - mobile-legends.html
 - CNAME
 
-Tidak perlu folder assets. Gambar karakter tertanam di HTML dan tidak mengandung judul/tombol bawaan.
-Setelah commit, buka https://juastore.web.id/?v=fix2
+Gambar sudah tertanam langsung di HTML. Tidak perlu folder assets.
+Setelah commit, buka:
+https://juastore.web.id/roblox.html?v=img
+https://juastore.web.id/mobile-legends.html?v=img
