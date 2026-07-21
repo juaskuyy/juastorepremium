@@ -688,24 +688,45 @@ const f=`╭━━━〔 🎮 *FORMAT ORDER ROBUX* 🎮 〕━━━╮
 ⚠️ Jangan pernah mengirim password, OTP, cookie, atau backup code.
 *Setelah mengisi format, kirim ke Admin 1 beserta bukti pembayaran.*`;
 const t=document.getElementById('toast');function show(x){t.textContent=x;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}document.getElementById('copy').onclick=async()=>{await navigator.clipboard.writeText(f);show('✅ Format Roblox disalin')};document.querySelectorAll('.rbbtn').forEach(b=>b.onclick=()=>window.open('https://wa.me/6285111662004?text='+encodeURIComponent('Halo Admin 1, saya mau order '+b.dataset.item+'\nUsername Roblox:\nMetode top up:'),'_blank'));
-</script><script>
-window.addEventListener('load', () => {
+</script>
+<script>
+(function () {
   const loader = document.getElementById('loader');
-  const status = loader?.querySelector('.loader-status');
+  if (!loader) return;
+
+  const status = loader.querySelector('.loader-status');
+  const startTime = Date.now();
+  const minimumDuration = 3500;
+
+  document.documentElement.style.overflow = 'hidden';
 
   setTimeout(() => {
     if (status) status.textContent = 'Hampir selesai...';
   }, 2100);
 
-  setTimeout(() => {
-    loader?.classList.add('hide');
-  }, 3500);
+  function closeLoader() {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, minimumDuration - elapsed);
 
-  setTimeout(() => {
-    loader?.remove();
-  }, 4100);
-});
+    setTimeout(() => {
+      loader.classList.add('hide');
+      document.documentElement.style.overflow = '';
+
+      setTimeout(() => {
+        loader.remove();
+      }, 650);
+    }, remaining);
+  }
+
+  if (document.readyState === 'complete') {
+    closeLoader();
+  } else {
+    window.addEventListener('load', closeLoader, { once: true });
+    setTimeout(closeLoader, 5000);
+  }
+})();
 </script>
+
 <script>
 const q=document.getElementById('priceSearch');
 const cards=[...document.querySelectorAll('.price-card')];

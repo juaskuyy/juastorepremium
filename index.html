@@ -194,21 +194,42 @@ border:1px solid var(--line);background:rgba(255,255,255,.025);color:#fff!import
 <div class="footer-socials">
 <a href="https://t.me/juastorepremium_bot" target="_blank">🤖 Telegram Bot</a>
 <a href="https://chat.whatsapp.com/HSQcXPrUVSlBMMjtqWcCDG?s=cl&p=a&ilr=0&amv=2" target="_blank">👥 Grup WhatsApp</a>
-</div></div></div></footer><script>
-window.addEventListener('load', () => {
+</div></div></div></footer>
+<script>
+(function () {
   const loader = document.getElementById('loader');
-  const status = loader?.querySelector('.loader-status');
+  if (!loader) return;
+
+  const status = loader.querySelector('.loader-status');
+  const startTime = Date.now();
+  const minimumDuration = 3500;
+
+  document.documentElement.style.overflow = 'hidden';
 
   setTimeout(() => {
     if (status) status.textContent = 'Hampir selesai...';
   }, 2100);
 
-  setTimeout(() => {
-    loader?.classList.add('hide');
-  }, 3500);
+  function closeLoader() {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, minimumDuration - elapsed);
 
-  setTimeout(() => {
-    loader?.remove();
-  }, 4100);
-});
-</script></body></html>
+    setTimeout(() => {
+      loader.classList.add('hide');
+      document.documentElement.style.overflow = '';
+
+      setTimeout(() => {
+        loader.remove();
+      }, 650);
+    }, remaining);
+  }
+
+  if (document.readyState === 'complete') {
+    closeLoader();
+  } else {
+    window.addEventListener('load', closeLoader, { once: true });
+    setTimeout(closeLoader, 5000);
+  }
+})();
+</script>
+</body></html>

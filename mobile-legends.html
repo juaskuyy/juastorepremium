@@ -113,9 +113,619 @@ box-shadow:0 16px 35px #1f79ff22;
 .page-title h1{font-size:46px}
 }
 
+
+.copy-btn,
+.orderbox .btn{
+    color:#fff !important;
+    background:linear-gradient(135deg,#08cfff 0%,#2574ff 48%,#a826ff 100%) !important;
+    border:0 !important;
+    box-shadow:0 10px 30px rgba(74,80,255,.28);
+    text-shadow:0 1px 2px rgba(0,0,0,.3);
+    font-weight:900 !important;
+    letter-spacing:.01em;
+}
+.copy-btn:hover,
+.orderbox .btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 35px rgba(97,65,255,.38);
+}
+.copy-btn:active,
+.orderbox .btn:active{
+    transform:translateY(0);
+}
+.orderbox{
+    align-items:stretch;
+}
+.orderbox .stack{
+    gap:14px;
+}
+.orderbox .stack .btn,
+.orderbox .stack button{
+    min-height:58px;
+    font-size:16px;
+    border-radius:14px;
+}
+@media(max-width:700px){
+    .orderbox{
+        padding:18px;
+        gap:18px;
+    }
+    .orderbox .stack .btn,
+    .orderbox .stack button{
+        min-height:56px;
+        font-size:15px;
+    }
+}
+
+
+.product-icon{
+    height:118px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:-2px 0 5px;
+}
+.product-icon svg{
+    width:150px;
+    height:105px;
+    overflow:visible;
+    filter:drop-shadow(0 10px 18px rgba(0,0,0,.4));
+}
+.price-card{
+    text-align:left;
+}
+.price-card .product-icon + small{
+    display:block;
+}
+@media(max-width:700px){
+    .product-icon{height:94px}
+    .product-icon svg{width:125px;height:88px}
+}
+
+
+/* ULTRA FINAL ENHANCEMENTS */
+
+.loader-brand{
+    margin-top:16px;
+    font-size:25px;
+    font-weight:1000;
+    letter-spacing:-.02em;
+    background:linear-gradient(90deg,#ffffff,#09cfff,#a43bff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+.loader-tagline{
+    margin-top:5px;
+    color:#c6d0e8;
+    font-size:11px;
+    font-weight:850;
+    letter-spacing:.18em;
+}
+.loader-status{
+    margin-top:10px;
+    color:#7f8aa8;
+    font-size:11px;
+}
+.loader-bar{
+    width:210px!important;
+    margin-top:22px!important;
+}
+.loader-bar:after{
+    width:35%!important;
+    animation:loadLong 3.35s cubic-bezier(.22,.8,.25,1) forwards!important;
+}
+@keyframes loadLong{
+    0%{transform:translateX(-110%)}
+    30%{transform:translateX(35%)}
+    68%{transform:translateX(125%)}
+    100%{transform:translateX(290%)}
+}
+.loader-logo{
+    animation:pulse 1.15s infinite alternate, loaderFloat 2.2s ease-in-out infinite;
+}
+@keyframes loaderFloat{
+    0%,100%{translate:0 0}
+    50%{translate:0 -5px}
+}
+
+#loader{
+position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
+background:radial-gradient(circle at center,#111939,#02040d 65%);
+transition:opacity .45s ease,visibility .45s ease;
+}
+#loader.hide{opacity:0;visibility:hidden}
+.loader-inner{text-align:center}
+.loader-logo{
+width:82px;height:82px;margin:auto;border-radius:24px;display:grid;place-items:center;
+font-size:30px;font-weight:1000;border:1px solid #7c46ff;
+box-shadow:0 0 35px rgba(124,70,255,.55);
+animation:pulse 1.2s infinite alternate;
+}
+.loader-bar{width:180px;height:6px;margin:18px auto 0;border-radius:20px;background:#151b34;overflow:hidden}
+.loader-bar:after{content:"";display:block;width:45%;height:100%;background:linear-gradient(90deg,#06cfff,#9a32ff);animation:load 1s infinite}
+@keyframes load{from{transform:translateX(-110%)}to{transform:translateX(250%)}}
+@keyframes pulse{to{transform:scale(1.05);box-shadow:0 0 52px rgba(0,207,255,.55)}}
+
+.price-tools{
+display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;
+margin:0 auto 26px;
+}
+.search-box{
+width:min(520px,100%);padding:15px 18px;border-radius:14px;
+border:1px solid var(--line);background:#0a1023;color:#fff;font-size:15px;outline:none;
+box-shadow:inset 0 0 20px rgba(255,255,255,.015);
+}
+.search-box:focus{border-color:#08cfff;box-shadow:0 0 0 3px rgba(8,207,255,.12)}
+.search-count{font-size:13px;color:var(--muted)}
+
+.price-card{
+transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.price-card:hover{
+transform:translateY(-6px);
+border-color:#6b5cff;
+box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 24px rgba(73,89,255,.15);
+}
+.price-card .order{transition:filter .2s ease,transform .15s ease}
+.price-card .order:hover{filter:brightness(1.13);transform:translateY(-1px)}
+.price-card .order:active{transform:scale(.98)}
+.price-card.hidden{display:none}
+
+.badge{
+position:absolute;top:12px;right:12px;z-index:4;
+padding:6px 9px;border-radius:999px;font-size:10px;font-weight:950;
+background:linear-gradient(135deg,#ff3fa4,#8e31ff);color:#fff;
+box-shadow:0 8px 20px rgba(255,63,164,.28)
+}
+.badge.hot{background:linear-gradient(135deg,#ff7a00,#ff2f66)}
+.badge.best{background:linear-gradient(135deg,#13d87b,#0fb9ff)}
+
+.product-icon{transition:transform .2s ease,filter .2s ease}
+.price-card:hover .product-icon{transform:translateY(-3px) scale(1.04)}
+.price-card:nth-child(3n+1) .product-icon svg{transform:scale(.92)}
+.price-card:nth-child(3n+2) .product-icon svg{transform:scale(1.02)}
+.price-card:nth-child(3n) .product-icon svg{transform:scale(1.10)}
+.price-card:nth-child(n+10) .product-icon svg{transform:scale(1.14)}
+.price-card:nth-child(n+15) .product-icon svg{transform:scale(1.22)}
+
+.hero-content{max-width:560px}
+.hero h1{letter-spacing:-.045em}
+.game{transition:transform .22s ease,box-shadow .22s ease}
+.game:hover{transform:translateY(-5px);box-shadow:0 24px 70px rgba(0,0,0,.48)}
+
+.footer-socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.footer-socials a{
+display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;
+border:1px solid var(--line);background:rgba(255,255,255,.025);color:#fff!important;font-weight:800
+}
+.footer-socials a:hover{border-color:#6e54ff;background:rgba(110,84,255,.09)}
+
+@media(max-width:700px){
+.price-tools{padding:0 12px}
+.hero-content{max-width:78%;padding-left:24px;padding-right:18px}
+}
+
 @media(max-width:900px){.games,.orderbox{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.menu a:not(.payment){display:none}}
 @media(max-width:580px){.actions{display:grid}.actions .btn{width:100%}.game{min-height:420px;padding:22px}.game-content{max-width:72%}.game h3{font-size:36px}.features,.price-grid,.footer{grid-template-columns:1fr}.brand small{display:none}.payment{font-size:13px;padding:12px!important}}
-</style></head><body><nav><div class="wrap nav"><a class="brand" href="index.html"><div class="logo">JS</div><div><b>Jua<span>Store</span></b><small>TOP UP GAME • AMAN • CEPAT</small></div></a><div class="menu"><a href="index.html">BERANDA</a><a href="roblox.html">ROBLOX</a><a href="mobile-legends.html">MOBILE LEGENDS</a><a href="#cara-order">CARA ORDER</a><a class="payment" href="https://juastorepayment.biz.id/" target="_blank">💳 PAYMENT</a></div></div></nav><main><section class="page-title"><div class="wrap"><div class="eyebrow">MOBILE LEGENDS TOP UP</div><h1>TOP UP <span class="grad">DIAMOND MLBB</span></h1><p>Pilih jumlah Diamond favoritmu.</p></div></section><section><div class="wrap price-grid"><div class="price-card"><small>DIAMOND MLBB</small><h3>20 Diamond</h3><div class="price">Rp6.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="20 Diamond - Rp6.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>59 Diamond</h3><div class="price">Rp15.500</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="59 Diamond - Rp15.500">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>100 Diamond</h3><div class="price">Rp26.500</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="100 Diamond - Rp26.500">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>200 Diamond</h3><div class="price">Rp57.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="200 Diamond - Rp57.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>250 Diamond</h3><div class="price">Rp69.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="250 Diamond - Rp69.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>334 Diamond</h3><div class="price">Rp98.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="334 Diamond - Rp98.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>429 Diamond</h3><div class="price">Rp119.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="429 Diamond - Rp119.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>568 Diamond</h3><div class="price">Rp149.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="568 Diamond - Rp149.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>706 Diamond</h3><div class="price">Rp189.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="706 Diamond - Rp189.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>1050 Diamond</h3><div class="price">Rp279.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="1050 Diamond - Rp279.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>1138 Diamond</h3><div class="price">Rp310.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="1138 Diamond - Rp310.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>1704 Diamond</h3><div class="price">Rp464.100</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="1704 Diamond - Rp464.100">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>2010 Diamond</h3><div class="price">Rp519.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="2010 Diamond - Rp519.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>2195 Diamond</h3><div class="price">Rp567.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="2195 Diamond - Rp567.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>3688 Diamond</h3><div class="price">Rp949.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="3688 Diamond - Rp949.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>4020 Diamond</h3><div class="price">Rp999.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="4020 Diamond - Rp999.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>4830 Diamond</h3><div class="price">Rp1.179.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="4830 Diamond - Rp1.179.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>5532 Diamond</h3><div class="price">Rp1.350.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="5532 Diamond - Rp1.350.000">PILIH PAKET</button></div><div class="price-card"><small>DIAMOND MLBB</small><h3>6000 Diamond</h3><div class="price">Rp1.464.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="6000 Diamond - Rp1.464.000">PILIH PAKET</button></div></div></section><section id="cara-order"><div class="wrap orderbox"><div><h2>Cara Order MLBB</h2><div class="steps"><div class="step"><b>1. Pilih nominal</b><span>Pilih jumlah Diamond.</span></div><div class="step"><b>2. Isi data</b><span>Masukkan User ID dan Zone ID.</span></div><div class="step"><b>3. Bayar</b><span>Bayar melalui Payment JuaStore.</span></div><div class="step"><b>4. Kirim ke Admin 1</b><span>Kirim format dan bukti pembayaran.</span></div></div></div><div class="stack"><button class="btn outline" id="copy">📋 SALIN FORMAT MLBB</button><a class="btn primary" href="https://juastorepayment.biz.id/">💳 PAYMENT</a><a class="btn primary" href="https://wa.me/6285111662004">💬 CHAT ADMIN 1</a></div></div></section></main><footer><div class="wrap footer"><div><a class="brand" href="index.html"><div class="logo">JS</div><div><b>Jua<span>Store</span></b></div></a><p>Top up Roblox dan Mobile Legends dengan harga terbaik.</p></div><div><h4>MENU</h4><a href="index.html">Beranda</a><a href="roblox.html">Roblox</a><a href="mobile-legends.html">Mobile Legends</a></div><div><h4>HUBUNGI KAMI</h4><a href="https://wa.me/6285111662004">WhatsApp Admin 1</a><b style="color:#fff">6285111662004</b></div></div></footer><div class="toast" id="toast"></div><script>
+</style></head><body><div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">JS</div>
+    <div class="loader-brand">JuaStore</div>
+    <div class="loader-tagline">PREMIUM APPS &amp; TOP UP GAME</div>
+    <div class="loader-bar"></div>
+    <div class="loader-status">Menyiapkan halaman...</div>
+  </div>
+</div><nav><div class="wrap nav"><a class="brand" href="index.html"><div class="logo">JS</div><div><b>Jua<span>Store</span></b><small>TOP UP GAME • AMAN • CEPAT</small></div></a><div class="menu"><a href="index.html">BERANDA</a><a href="roblox.html">ROBLOX</a><a href="mobile-legends.html">MOBILE LEGENDS</a><a href="#cara-order">CARA ORDER</a><a class="payment" href="https://juastorepayment.biz.id/" target="_blank">💳 PAYMENT</a></div></div></nav><main><section class="page-title"><div class="wrap"><div class="eyebrow">MOBILE LEGENDS TOP UP</div><h1>TOP UP <span class="grad">DIAMOND MLBB</span></h1><p>Pilih jumlah Diamond favoritmu.</p></div></section><section><div class="wrap">
+<div class="price-tools">
+<input id="priceSearch" class="search-box" type="search" placeholder="Cari nominal Diamond..." autocomplete="off">
+<div id="searchCount" class="search-count"></div>
+</div>
+<div class="price-grid"><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>20 Diamond</h3><div class="price">Rp6.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="20 Diamond - Rp6.000">PILIH PAKET</button></div><div class="price-card"><span class="badge hot">🔥 LARIS</span>
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>59 Diamond</h3><div class="price">Rp15.500</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="59 Diamond - Rp15.500">PILIH PAKET</button></div><div class="price-card"><span class="badge best">⭐ BEST SELLER</span>
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>100 Diamond</h3><div class="price">Rp26.500</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="100 Diamond - Rp26.500">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>200 Diamond</h3><div class="price">Rp57.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="200 Diamond - Rp57.000">PILIH PAKET</button></div><div class="price-card"><span class="badge hot">🔥 LARIS</span>
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>250 Diamond</h3><div class="price">Rp69.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="250 Diamond - Rp69.000">PILIH PAKET</button></div><div class="price-card"><span class="badge best">⭐ BEST SELLER</span>
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>334 Diamond</h3><div class="price">Rp98.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="334 Diamond - Rp98.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>429 Diamond</h3><div class="price">Rp119.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="429 Diamond - Rp119.000">PILIH PAKET</button></div><div class="price-card"><span class="badge hot">🔥 LARIS</span>
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>568 Diamond</h3><div class="price">Rp149.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="568 Diamond - Rp149.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>706 Diamond</h3><div class="price">Rp189.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="706 Diamond - Rp189.000">PILIH PAKET</button></div><div class="price-card"><span class="badge">💎 HEMAT</span>
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>1050 Diamond</h3><div class="price">Rp279.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="1050 Diamond - Rp279.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>1138 Diamond</h3><div class="price">Rp310.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="1138 Diamond - Rp310.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>1704 Diamond</h3><div class="price">Rp464.100</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="1704 Diamond - Rp464.100">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>2010 Diamond</h3><div class="price">Rp519.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="2010 Diamond - Rp519.000">PILIH PAKET</button></div><div class="price-card"><span class="badge">💎 HEMAT</span>
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>2195 Diamond</h3><div class="price">Rp567.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="2195 Diamond - Rp567.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>3688 Diamond</h3><div class="price">Rp949.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="3688 Diamond - Rp949.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>4020 Diamond</h3><div class="price">Rp999.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="4020 Diamond - Rp999.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>4830 Diamond</h3><div class="price">Rp1.179.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="4830 Diamond - Rp1.179.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>5532 Diamond</h3><div class="price">Rp1.350.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="5532 Diamond - Rp1.350.000">PILIH PAKET</button></div><div class="price-card">
+<div class="product-icon diamond-icon" aria-hidden="true">
+<svg viewBox="0 0 180 110" role="img">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffff"/>
+      <stop offset=".45" stop-color="#1597ff"/>
+      <stop offset="1" stop-color="#2655ff"/>
+    </linearGradient>
+    <filter id="dglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#dglow)" stroke="#bceeff" stroke-width="2">
+    <polygon points="90,12 132,37 113,87 67,87 48,37" fill="url(#dg)"/>
+    <polyline points="48,37 90,49 132,37" fill="none"/>
+    <polyline points="67,87 90,49 113,87" fill="none"/>
+    <line x1="90" y1="12" x2="90" y2="49"/>
+    <polygon points="37,57 57,69 48,92 26,92 17,69" fill="url(#dg)" opacity=".9"/>
+    <polygon points="143,57 163,69 154,92 132,92 123,69" fill="url(#dg)" opacity=".9"/>
+  </g>
+</svg>
+</div>
+<small>DIAMOND MLBB</small><h3>6000 Diamond</h3><div class="price">Rp1.464.000</div><p>Top up memakai User ID dan Zone ID.</p><button class="order mlbtn" data-item="6000 Diamond - Rp1.464.000">PILIH PAKET</button></div></div></div></section><section id="cara-order"><div class="wrap orderbox"><div><h2>Cara Order MLBB</h2><div class="steps"><div class="step"><b>1. Pilih nominal</b><span>Pilih jumlah Diamond.</span></div><div class="step"><b>2. Isi data</b><span>Masukkan User ID dan Zone ID.</span></div><div class="step"><b>3. Bayar</b><span>Bayar melalui Payment JuaStore.</span></div><div class="step"><b>4. Kirim ke Admin 1</b><span>Kirim format dan bukti pembayaran.</span></div></div></div><div class="stack"><button class="btn outline copy-btn" id="copy" style="color:#fff;background:linear-gradient(135deg,#08cfff,#2574ff,#a826ff);">📋 SALIN FORMAT MOBILE LEGENDS</button><a class="btn primary" href="https://juastorepayment.biz.id/">💳 PAYMENT</a><a class="btn primary" href="https://wa.me/6285111662004">💬 CHAT ADMIN 1</a></div></div></section></main><footer><div class="wrap footer"><div><a class="brand" href="index.html"><div class="logo">JS</div><div><b>Jua<span>Store</span></b></div></a><p>Top up Roblox dan Mobile Legends dengan harga terbaik.</p></div><div><h4>MENU</h4><a href="index.html">Beranda</a><a href="roblox.html">Roblox</a><a href="mobile-legends.html">Mobile Legends</a></div><div><h4>HUBUNGI KAMI</h4>
+<a href="https://wa.me/6285111662004">WhatsApp Admin 1</a>
+<b style="color:#fff">6285111662004</b>
+<div class="footer-socials">
+<a href="https://t.me/juastorepremium_bot" target="_blank">🤖 Telegram Bot</a>
+<a href="https://chat.whatsapp.com/HSQcXPrUVSlBMMjtqWcCDG?s=cl&p=a&ilr=0&amv=2" target="_blank">👥 Grup WhatsApp</a>
+</div></div></div></footer><div class="toast" id="toast"></div><script>
 const f=`╭━━━〔 💎 *FORMAT ORDER DIAMOND MLBB* 💎 〕━━━╮
 
 𐙚 *_User ID Mobile Legends_* »
@@ -125,4 +735,59 @@ const f=`╭━━━〔 💎 *FORMAT ORDER DIAMOND MLBB* 💎 〕━━━╮
 ⚠️ Pastikan User ID dan Zone ID sudah benar.
 *Setelah mengisi format, kirim ke Admin 1 beserta bukti pembayaran.*`;
 const t=document.getElementById('toast');function show(x){t.textContent=x;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}document.getElementById('copy').onclick=async()=>{await navigator.clipboard.writeText(f);show('✅ Format MLBB disalin')};document.querySelectorAll('.mlbtn').forEach(b=>b.onclick=()=>window.open('https://wa.me/6285111662004?text='+encodeURIComponent('Halo Admin 1, saya mau top up '+b.dataset.item+'\nUser ID:\nZone ID:'),'_blank'));
-</script></body></html>
+</script>
+<script>
+(function () {
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+
+  const status = loader.querySelector('.loader-status');
+  const startTime = Date.now();
+  const minimumDuration = 3500;
+
+  document.documentElement.style.overflow = 'hidden';
+
+  setTimeout(() => {
+    if (status) status.textContent = 'Hampir selesai...';
+  }, 2100);
+
+  function closeLoader() {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, minimumDuration - elapsed);
+
+    setTimeout(() => {
+      loader.classList.add('hide');
+      document.documentElement.style.overflow = '';
+
+      setTimeout(() => {
+        loader.remove();
+      }, 650);
+    }, remaining);
+  }
+
+  if (document.readyState === 'complete') {
+    closeLoader();
+  } else {
+    window.addEventListener('load', closeLoader, { once: true });
+    setTimeout(closeLoader, 5000);
+  }
+})();
+</script>
+
+<script>
+const q=document.getElementById('priceSearch');
+const cards=[...document.querySelectorAll('.price-card')];
+const count=document.getElementById('searchCount');
+function filterCards(){
+ const term=(q?.value||'').toLowerCase().trim();
+ let visible=0;
+ cards.forEach(card=>{
+   const ok=card.innerText.toLowerCase().includes(term);
+   card.classList.toggle('hidden',!ok);
+   if(ok) visible++;
+ });
+ if(count) count.textContent=term?`${visible} paket ditemukan`:`${cards.length} paket tersedia`;
+}
+q?.addEventListener('input',filterCards);filterCards();
+</script>
+</body></html>
