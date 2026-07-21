@@ -1,4 +1,4 @@
-VERSI HALAMAN ROBLOX & MOBILE LEGENDS BERGAMBAR
+JUASTORE FINAL — TOMBOL SALIN FORMAT TERLIHAT
 
 Upload dan timpa:
 - index.html
@@ -6,7 +6,12 @@ Upload dan timpa:
 - mobile-legends.html
 - CNAME
 
-Gambar sudah tertanam langsung di HTML. Tidak perlu folder assets.
+Perbaikan:
+- Tombol Salin Format berwarna gradasi biru–ungu
+- Tulisan tombol berwarna putih
+- Tombol Payment dan Chat Admin seragam
+- Tampilan mobile lebih rapi
+
 Setelah commit, buka:
-https://juastore.web.id/roblox.html?v=img
-https://juastore.web.id/mobile-legends.html?v=img
+https://juastore.web.id/roblox.html?v=finalbtn
+https://juastore.web.id/mobile-legends.html?v=finalbtn
